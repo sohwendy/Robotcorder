@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Robotcorder",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "homepage_url": "https://github.com/sohwendy/Robotcorder",
   "description": "A Robot that records user action and scans the page to generate RobotFramework test scripts (beta)",
 

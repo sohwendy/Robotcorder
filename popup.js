@@ -1,6 +1,6 @@
 'use strict';
 
-const gaAccount = '';
+const gaAccount = 'UA-88380525-1';
 
 var host = chrome;
 const storage = host.storage.local;
@@ -9,9 +9,12 @@ var _gaq = _gaq || [];
 _gaq.push(['_setAccount', gaAccount]);
 _gaq.push(['_trackPageview']);
 (function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  var ga = document.createElement('script');
+  ga.type = 'text/javascript';
+  ga.async = true;
   ga.src = 'https://ssl.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(ga, s);
 })();
 
 function analytics(data) {
@@ -66,24 +69,24 @@ function operation(e) {
   let locators = $('#sortable').sortable('toArray', { attribute: 'id' });
   host.runtime.sendMessage({ operation: e.target.id, locators: locators }, display);
 
-  analytics(['_trackEvent', e.target.id]);
+  analytics(['_trackEvent', e.target.id, '^-^']);
 }
 
 function settings() {
   let locators = $('#sortable').sortable('toArray', { attribute: 'id' });
   host.runtime.sendMessage({operation: 'locators', locators: locators});
 
-  analytics(['_trackEvent', 'locators']);
+  analytics(['_trackEvent', 'locators', '@_@']);
 }
 
 function info() {
   host.runtime.sendMessage({ operation: 'info' });
 
-  analytics(['_trackEvent', 'info']);
+  analytics(['_trackEvent', 'info', 'ℹ️']);
 }
 
 function like() {
-  analytics(['_trackEvent', 'like']);
+  analytics(['_trackEvent', 'like', '👍');
 }
 
 

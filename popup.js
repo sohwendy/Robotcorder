@@ -86,7 +86,7 @@ function info() {
 }
 
 function like() {
-  analytics(['_trackEvent', 'like', '👍');
+  analytics(['_trackEvent', 'like', '👍']);
 }
 
 

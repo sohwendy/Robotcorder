@@ -12,7 +12,7 @@ A browser extension (beta) that generates [RobotFramework](http://robotframework
 
 
 ## Download
-[Robotcorder - Chrome Webstore](https://chrome.google.com/webstore/detail/robotcorder/ifiilbfgcemdapeibjfohnfpfmfblmpd)
+[Robotcorder - Chrome Web Store](https://chrome.google.com/webstore/detail/robotcorder/ifiilbfgcemdapeibjfohnfpfmfblmpd)
 
 
 ## Package

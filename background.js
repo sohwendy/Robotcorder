@@ -9,11 +9,15 @@ var content = host.tabs;
 var icon = host.browserAction;
 var maxLength = 5000;
 var recordTab = 0;
+var demo = false;
+var verify = false;
 
 storage.set({
   locators: ["for", "name", "id", "title", "href", "class"],
   operation: "stop",
   message: instruction,
+  demo: false,
+  verify: false,
   canSave: false,
   isBusy: false
 });
@@ -48,7 +52,7 @@ host.runtime.onMessage.addListener(
       recordTab = 0;
       icon.setIcon({path: logo[operation]});
 
-      script = RobotTranslator.generateEvents(list, maxLength);
+      script = RobotTranslator.generateEvents(list, maxLength, demo, verify);
       content.query(tab, (tabs) => {
         content.sendMessage(tabs[0].id, {operation: "stop"});
       });
@@ -56,15 +60,18 @@ host.runtime.onMessage.addListener(
       storage.set({message: script, operation: operation, canSave: true});
 
     } else if (operation == "save") {
-      let file = RobotTranslator.generateFile(list);
+      let file = RobotTranslator.generateFile(list, maxLength, demo, verify);
       let blob = new Blob([file], {type: "text/plain;charset=utf-8"});
+
       host.downloads.download({
-        url: URL.createObjectURL(blob),
+        url: URL.createObjectURL(blob, {oneTimeOnly: true}),
         filename: 'test_script.robot'
       });
 
-    } else if (operation == "locators") {
-      storage.set({locators: request.locators});
+    } else if (operation == "settings") {
+      demo = request.demo;
+      verify = request.verify;
+      storage.set({locators: request.locators, demo: demo, verify: verify});
 
     } else if (operation == "load") {
       storage.get({operation: "stop", locators: []}, (state) => {
@@ -84,7 +91,7 @@ host.runtime.onMessage.addListener(
       if (request.scripts) {
         icon.setIcon({path: logo["stop"]});
         list = request.scripts;
-        script = RobotTranslator.generateEvents(list, maxLength);
+        script = RobotTranslator.generateEvents(list, maxLength, demo, verify);
 
         storage.set({message: script, operation: "stop", isBusy: false});
       }
@@ -99,8 +106,6 @@ function selection(item) {
   }
 
   let prevItem = list[list.length - 1];
-
-  // console.log(Math.abs(item.time - prevItem.time), item.time, prevItem.trigger, item.trigger, item);
 
   if (Math.abs(item.time - prevItem.time) > 20) {
     list.push(item);

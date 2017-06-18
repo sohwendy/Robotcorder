@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Robotcorder",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "homepage_url": "https://github.com/sohwendy/Robotcorder",
   "description": "A Robot that records user action and scans the page to generate RobotFramework test scripts (beta)",
 
@@ -19,7 +19,7 @@
 
     "js": ["locator.js", "content.js"],
     "run_at": "document_end",
-    "all_frames": false
+    "all_frames": true
   }],
 
   "browser_action": {
@@ -34,5 +34,5 @@
     "128": "assets//logo-128.png"
   },
 
-  "permissions": ["<all_urls>", "activeTab", "tabs", "downloads", "storage"]
+  "permissions": ["<all_urls>", "activeTab", "downloads", "storage"]
 }

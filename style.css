@@ -195,3 +195,13 @@ textarea {
     background-color: #FFFFFF;
     cursor: not-allowed;
 }
+
+.panel-row {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

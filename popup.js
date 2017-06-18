@@ -48,19 +48,16 @@ function toggle(e){
   } else if ((e.canSave == true) || (e.target.id == 'scan') || (e.target.id == 'stop')) {
     document.getElementById('save').disabled = false;
   }
+  if (e.demo) { document.getElementById('demo').checked = e.demo; }
+  if (e.verify) { document.getElementById('verify').checked = e.verify; }
 }
 
 function busy(e) {
-  if (e.isBusy === true) {
-    document.getElementById('scan').disabled = true;
-    document.getElementById('record').disabled = true;
-    document.getElementById('stop').disabled = true;
-    document.getElementById('save').disabled = true;
-  } else if (e.isBusy === false) {
-    document.getElementById('scan').disabled = false;
-    document.getElementById('record').disabled = false;
-    document.getElementById('stop').disabled = false;
-    document.getElementById('save').disabled = false;
+  if ((e.isBusy === true) || (e.isBusy === false)) {
+    document.getElementById('scan').disabled = e.isBusy;
+    document.getElementById('record').disabled = e.isBusy;
+    document.getElementById('stop').disabled = e.isBusy;
+    document.getElementById('save').disabled = e.isBusy;
   }
 }
 
@@ -74,8 +71,9 @@ function operation(e) {
 
 function settings() {
   let locators = $('#sortable').sortable('toArray', { attribute: 'id' });
-  host.runtime.sendMessage({operation: 'locators', locators: locators});
-
+  let demo = document.getElementById('demo').checked;
+  let verify = document.getElementById('verify').checked;
+  host.runtime.sendMessage({operation: 'settings', locators: locators, demo: demo, verify: verify});
   analytics(['_trackEvent', 'locators', '@_@']);
 }
 
@@ -91,9 +89,23 @@ function like() {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  storage.get({ message: 'Record or Scan', operation: 'stop', canSave: false, isBusy: false, locators: [] }, (state) => {
+  storage.get({
+    message: 'Record or Scan',
+    operation: 'stop',
+    canSave: false,
+    isBusy: false,
+    demo: false,
+    verify: false,
+    locators: []
+  }, (state) => {
     display({ message: state.message });
-    toggle({ target: { id: state.operation }, canSave: state.canSave, isBusy: state.isBusy });
+    toggle({
+      target: { id: state.operation },
+      canSave: state.canSave,
+      isBusy: state.isBusy,
+      demo: state.demo,
+      verify: state.verify
+    });
     let sortable = document.getElementById('sortable');
     state.locators.forEach((locator) => {
       let li = document.createElement('li');
@@ -111,6 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('like').addEventListener('click', like);
   document.getElementById('info').addEventListener('click', info);
   document.getElementById('settings').addEventListener('click', toggle);
+  document.getElementById('demo').addEventListener('change', settings);
+  document.getElementById('verify').addEventListener('change', settings);
 
   $('#sortable').sortable({update: settings});
   $('#sortable').disableSelection();

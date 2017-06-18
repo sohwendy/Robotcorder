@@ -12,16 +12,30 @@ var map = {
 };
 
 var RobotTranslator = {
-  generateEvents: function (list, length){
-    let events = list.map(this._generatePath);
-    if (events.length > length) {
-      events = events.splice(0, length);
+  generateEvents: function (list, length, demo, verify){
+    let events = [];
+    for (var i = 0; i < list.length && i < length ; i ++) {
+      let event = this._generateVerify(list[i], verify);
+      event && events.push(event);
+      event = this._generatePath(list[i]);
+      event && events.push(event);
+      event = this._generateDemo(demo);
+      event && events.push(event);
     }
+
     return events.join("\n");
   },
 
-  generateFile: function(list) {
-    let events = list.map(this._generatePath);
+  generateFile: function(list, length, demo, verify) {
+    let events = [];
+    for (var i = 0; i < list.length && i < length ; i ++) {
+      let event = this._generateVerify(list[i], verify);
+      event && events.push(event);
+      event = this._generatePath(list[i]);
+      event && events.push(event);
+      event = this._generateDemo(demo);
+      event && events.push(event);
+    }
     events = events.reduce((a, b) => { return a + "    " + b + "\n"; }, "");
 
     return "*** Settings ***" +
@@ -31,6 +45,7 @@ var RobotTranslator = {
       "\nSuite Teardown    Close All Browsers" +
       "\n\n*** Variables ***" +
       "\n${BROWSER}    chrome" +
+      "\n${SLEEP}    3" +
       "\n\n*** Test Cases ***" +
       "\n" + list[0].title + " test" +
       "\n" +
@@ -46,5 +61,13 @@ var RobotTranslator = {
     path += attr.value && type.value ? `  ${attr.value}` : '' ;
 
     return path;
+  },
+
+  _generateDemo: function(demo) {
+    return demo ? 'Sleep    ${SLEEP}' : '' ;
+  },
+
+  _generateVerify: function(attr, verify) {
+    return attr.xpath && verify ? `Wait Until Page Contains Element   ${attr.xpath}` : '' ;
   }
 };

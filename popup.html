@@ -1,50 +1,65 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8"/>
-    <title>Robotcorder</title>
-    <link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" type="text/css" href="vendors/jquery-ui.min.css"/>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="vendors/jquery-3.1.1.min.js"></script>
-    <script src="vendors/jquery-ui.min.js"></script>
-  </head>
+<head>
+  <meta charset="utf-8"/>
+  <title>Robotcorder</title>
+  <link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" type="text/css" href="vendors/jquery-ui.min.css"/>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="vendors/jquery-3.1.1.min.js"></script>
+  <script src="vendors/jquery-ui.min.js"></script>
+</head>
 
-  <body class="container" tabindex="-1">
-    <div class="padding">
-      <span>
-        <button class="btn btn-wide" id="record" tabindex="-1" title="record user action">
-          record
-        </button>
+<body class="container" tabindex="-1">
+  <div class="padding">
+    <span>
+      <button class="btn btn-wide" id="record" tabindex="-1" title="record user action">
+        record
+      </button>
 
-        <button class="btn btn-wide" id="stop" tabindex="-1" title="stop the recording">
-          stop
-        </button>
+      <button class="btn btn-wide" id="stop" tabindex="-1" title="stop the recording">
+        stop
+      </button>
 
-        <button class="btn btn-wide" id="scan" tabindex="-1" title="scan entire page. might be slow">
-          scan
-        </button>
+      <button class="btn btn-wide" id="scan" tabindex="-1" title="scan entire page. might be slow">
+        scan
+      </button>
 
-        <button class="btn btn-wide" id="save" tabindex="-1" disabled title="download robot test script">
-          save
-        </button>
-      </span>
+      <button class="btn btn-wide" id="save" tabindex="-1" disabled title="download robot test script">
+        save
+      </button>
+    </span>
 
-      <span class="btn-thin">
-        <button class="btn" id="settings" tabindex="-1" title="show/hide settings"></button>
-        <button class="btn" id="info" tabindex="-1" title="open instructions in another tab"></button>
-        <button class="btn" id="like" tabindex="-1" title="like me!"></button>
-      </span>
-    </div>
+    <span class="btn-thin">
+      <button class="btn" id="settings" tabindex="-1" title="show/hide settings"></button>
+      <button class="btn" id="info" tabindex="-1" title="open instructions in another tab"></button>
+      <button class="btn" id="like" tabindex="-1" title="like me!"></button>
+    </span>
+  </div>
 
-    <div id="settings-panel" class="pad hidden">
+  <div id="settings-panel" class="pad hidden">
+    <div class="panel-row">
       <span>Drag to reorder locators priority</span>
       <ul id="sortable" class="ui-sortable"/>
     </div>
 
-    <div class="pad">
-      <textarea id="textarea-script" tabindex="-1" readonly></textarea>
+    <div class="panel-row">
+      <div>
+        <input type="checkbox" id="demo" />
+        <label for="demo"> Add a 3s sleep after each action (for demo) </label>
+      </div>
+      <div>
+        <input type="checkbox" id="verify" />
+        <label for="verify">Check page contains element before performing the action</label>
+      </div>
     </div>
-    <script src="popup.js"></script>
-  </body>
+  </div>
+
+  <div class="pad">
+    <textarea id="textarea-script" tabindex="-1" readonly></textarea>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
 </html>

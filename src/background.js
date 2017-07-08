@@ -1,5 +1,5 @@
 /* global chrome URL Blob */
-/* global instruction filename statusMessage url  tab logo Translator*/
+/* global instruction filename statusMessage url tab logo translator*/
 
 const host = chrome;
 
@@ -74,14 +74,14 @@ host.runtime.onMessage.addListener(
       recordTab = 0;
       icon.setIcon({ path: logo[operation] });
 
-      script = Translator.generateEvents(list, maxLength, demo, verify);
+      script = translator.generateOutput(list, maxLength, demo, verify);
       content.query(tab, (tabs) => {
         content.sendMessage(tabs[0].id, { operation: 'stop' });
       });
 
       storage.set({ message: script, operation, canSave: true });
     } else if (operation === 'save') {
-      const file = Translator.generateFile(list, maxLength, demo, verify);
+      const file = translator.generateFile(list, maxLength, demo, verify);
       const blob = new Blob([file], { type: 'text/plain;charset=utf-8' });
 
       host.downloads.download({
@@ -108,7 +108,7 @@ host.runtime.onMessage.addListener(
       if (request.scripts) {
         icon.setIcon({ path: logo.stop });
         list = request.scripts;
-        script = Translator.generateEvents(list, maxLength, demo, verify);
+        script = translator.generateOutput(list, maxLength, demo, verify);
 
         storage.set({ message: script, operation: 'stop', isBusy: false });
       }

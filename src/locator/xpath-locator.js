@@ -1,8 +1,8 @@
 /* global document XPathResult */
 
-const Locator = {
-  build(pathTree, element, type) {
-    const item = pathTree[0];
+const locator = {
+  build(tree, element, type) {
+    const item = tree[0];
     const tag = Object.keys(item)[0];
     const p = item[tag].reduce((subpath, attr) => (
         subpath === '' ? this._getSubpath(subpath, attr, tag) : subpath
@@ -19,7 +19,7 @@ const Locator = {
   },
 
   _found(attributes, path) {
-    attributes.some(attr => path.includes(attr));
+    return attributes.some(attr => path.includes(attr));
   },
 
   _getIndex(path, element) {
@@ -35,10 +35,6 @@ const Locator = {
     return { count, index };
   },
 
-  _concat(subpath, path) {
-    return subpath + path;
-  },
-
   _getSubpath(subpath, attr, tag) {
     if (attr.for != null) return `/${tag}[@for="${attr.for}"]`;
     if ((attr.class != null) && (attr.class.length > 0)) return `/${tag}[@class="${attr.class}"]`;
@@ -50,3 +46,5 @@ const Locator = {
     return '';
   }
 };
+
+if (typeof exports !== 'undefined') exports.locator = locator;

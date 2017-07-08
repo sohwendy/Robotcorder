@@ -1,14 +1,12 @@
 {
-    "extends": "airbnb-base",
+    "extends": ["airbnb-base", ".eslintrc-todo"],
+    "env": {
+      "mocha": true
+    },
     "rules": {
-      "no-unused-vars": "off",
       "comma-dangle": ["error", "never"],
       "max-len": ["error", {"code":120, "comments": 120}],
       "no-template-curly-in-string": "off",
-      "no-plusplus": "off",
-      "no-underscore-dangle": "off",
-      "no-unused-expressions": "off",
-      "no-cond-assign": "off",
-      "no-restricted-syntax": "off"
+      "no-plusplus": "off"
     }
 }

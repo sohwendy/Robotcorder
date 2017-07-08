@@ -1,14 +1,14 @@
 {
   "name": "robotcorder",
   "version": "0.1.10",
-  "description": "",
+  "description": "A Robot that records user action and scans the page to generate RobotFramework test scripts (beta)",
   "main": "src.background.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha -r jsdom-global/register test/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,13 @@
   },
   "homepage": "https://github.com/sohwendy/Robotcorder#readme",
   "devDependencies": {
+    "chai": "^4.0.2",
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
-    "eslint-plugin-import": "^2.7.0"
+    "eslint-plugin-import": "^2.7.0",
+    "jsdom": "11.1.0",
+    "jsdom-global": "3.0.2",
+    "mocha": "^3.4.2",
+    "sinon-chrome": "^2.2.1"
   }
 }

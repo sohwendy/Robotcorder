@@ -22,8 +22,9 @@
     ],
     "js": [
       "./src/locator/xpath-locator.js",
-      "./src/locator/construct.js",
-      "./src/locator/scan.js",
+      "./src/locator/tree-builder.js",
+      "./src/locator/classifier.js",
+      "./src/locator/scanner.js",
       "./src/content.js"
     ],
     "run_at": "document_end",

@@ -1,4 +1,4 @@
-/* global document chrome Scan*/
+/* global document chrome scanner*/
 
 const host = chrome;
 let strategyList = [];
@@ -26,7 +26,7 @@ function handleByChange(type) {
 }
 
 function recordChange(event) {
-  const attr = Scan.parseNode(getTime(), event.target, strategyList);
+  const attr = scanner.parseNode(getTime(), event.target, strategyList);
 
   if (handleByChange(attr.type)) {
     Object.assign(attr, { trigger: 'change' });
@@ -35,7 +35,7 @@ function recordChange(event) {
 }
 
 function recordClick(event) {
-  const attr = Scan.parseNode(getTime(), event.target, strategyList);
+  const attr = scanner.parseNode(getTime(), event.target, strategyList);
 
   if (!handleByChange(attr.type)) {
     Object.assign(attr, { trigger: 'click' });
@@ -59,8 +59,8 @@ host.runtime.onMessage.addListener(
       document.removeEventListener('change', recordChange, true);
       document.removeEventListener('click', recordClick, true);
 
-      Scan.limit = 10000;
-      const array = Scan.parseNodes([], document.body, strategyList);
+      scanner.limit = 10000;
+      const array = scanner.parseNodes([], document.body, strategyList);
       host.runtime.sendMessage({ operation: 'action', scripts: array });
     }
   }

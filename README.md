@@ -23,6 +23,7 @@ A browser extension (beta) that generates [RobotFramework](http://robotframework
 - [ ] use select from radio, checkbox
 - [ ] check why display is receiving null message
 - [ ] write unit test
+- [ ] setup ci
 - [X] add more configurations
 
 

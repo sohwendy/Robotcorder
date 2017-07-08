@@ -1,0 +1,28 @@
+{
+  "name": "robotcorder",
+  "version": "0.1.10",
+  "description": "",
+  "main": "src.background.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sohwendy/Robotcorder.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sohwendy/Robotcorder/issues"
+  },
+  "homepage": "https://github.com/sohwendy/Robotcorder#readme",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.7.0"
+  }
+}

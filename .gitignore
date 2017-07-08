@@ -1,2 +1,3 @@
 archive/
 *.zip
+node_modules/

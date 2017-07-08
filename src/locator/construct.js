@@ -1,5 +1,3 @@
-"use strict";
-
 /* PathTree constructs an array of element and its parents
  Example
      <body>
@@ -12,20 +10,20 @@
      {"div": [{class: "d"}]},
      {"body", [{index: 0}]}]
 */
-var PathTree = {
+const PathTree = {
   // find the position of the element
-  //return 0 if element does not have sibling tags
+  // return 0 if element does not have sibling tags
   _getIndex(element) {
     let found = false;
     let count = 0;
     let index = 0;
-    let siblings = element.parentNode.childNodes;
+    const siblings = element.parentNode.childNodes;
 
     for (let i = 0; i < siblings.length; i++) {
       if (siblings[i] === element) { found = true; }
       if ((siblings[i].nodeType === 1) && (siblings[i].tagName === element.tagName)) {
-        count++ ;
-        !found ? index++ : '';
+        count += 1;
+        index = !found ? index + 1 : index;
       }
     }
     return count > 1 ? index + 1 : 0;
@@ -34,18 +32,18 @@ var PathTree = {
   // construct a prioritized non empty array of {key, value} object
   // key is the attribute type, value contains int for index, [] for className, string for others
   _buildAttributes(element, selectors) {
-    let array = selectors.map((sel) => {
+    const array = selectors.map((sel) => {
       let attr;
-      if (sel === "className") {
-        attr = element.className.length > 0 ? element.className.split(" ") : [];
-      } else if (sel === "index") {
+      if (sel === 'className') {
+        attr = element.className.length > 0 ? element.className.split(' ') : [];
+      } else if (sel === 'index') {
         attr = 1;
         // attr = this._getIndex(element);
-      } else { //name, id, for, href, title
+      } else { // name, id, for, href, title
         attr = element.getAttribute(sel);
       }
-      //[] is required to template string as key
-      return attr  ? {[`${sel}`]: attr} : null;
+      // [] is required to template string as key
+      return attr ? { [`${sel}`]: attr } : null;
     });
     return array.filter(n => n);
   },
@@ -55,8 +53,8 @@ var PathTree = {
     if (!element) return pathList;
     if (element.nodeType === 9) return pathList;
 
-    let array = this._buildAttributes(element, attributesArray);
-    pathList.push({[`${element.tagName.toLowerCase()}`]: array});
+    const array = this._buildAttributes(element, attributesArray);
+    pathList.push({ [`${element.tagName.toLowerCase()}`]: array });
     return this.build(element.parentNode, attributesArray, pathList);
   }
 };

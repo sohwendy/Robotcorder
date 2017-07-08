@@ -52,7 +52,7 @@ host.runtime.onMessage.addListener(
       recordTab = 0;
       icon.setIcon({path: logo[operation]});
 
-      script = RobotTranslator.generateEvents(list, maxLength, demo, verify);
+      script = Translator.generateEvents(list, maxLength, demo, verify);
       content.query(tab, (tabs) => {
         content.sendMessage(tabs[0].id, {operation: "stop"});
       });
@@ -60,12 +60,12 @@ host.runtime.onMessage.addListener(
       storage.set({message: script, operation: operation, canSave: true});
 
     } else if (operation == "save") {
-      let file = RobotTranslator.generateFile(list, maxLength, demo, verify);
+      let file = Translator.generateFile(list, maxLength, demo, verify);
       let blob = new Blob([file], {type: "text/plain;charset=utf-8"});
 
       host.downloads.download({
         url: URL.createObjectURL(blob, {oneTimeOnly: true}),
-        filename: 'test_script.robot'
+        filename: filename
       });
 
     } else if (operation == "settings") {
@@ -91,7 +91,7 @@ host.runtime.onMessage.addListener(
       if (request.scripts) {
         icon.setIcon({path: logo["stop"]});
         list = request.scripts;
-        script = RobotTranslator.generateEvents(list, maxLength, demo, verify);
+        script = Translator.generateEvents(list, maxLength, demo, verify);
 
         storage.set({message: script, operation: "stop", isBusy: false});
       }

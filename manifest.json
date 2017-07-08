@@ -1,14 +1,18 @@
 {
   "manifest_version": 2,
   "name": "Robotcorder",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "homepage_url": "https://github.com/sohwendy/Robotcorder",
   "description": "A Robot that records user action and scans the page to generate RobotFramework test scripts (beta)",
 
   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
 
   "background": {
-    "scripts": ["constants.js", "robot-translator.js", "background.js"],
+    "scripts": [
+      "./src/constants.js",
+      "./src/translator/robot-translator.js",
+      "./src/background.js"
+    ],
     "persistent": true
   },
 
@@ -16,22 +20,26 @@
     "matches": [
       "<all_urls>"
     ],
-
-    "js": ["locator.js", "content.js"],
+    "js": [
+      "./src/locator/xpath-locator.js",
+      "./src/locator/construct.js",
+      "./src/locator/scan.js",
+      "./src/content.js"
+    ],
     "run_at": "document_end",
     "all_frames": true
   }],
 
   "browser_action": {
-    "default_icon": "assets//icon-stop.png",
-    "default_popup": "popup.html"
+    "default_icon": "assets/icon-stop.png",
+    "default_popup": "src/popup.html"
   },
 
   "icons": {
-    "16": "assets//logo-16.png",
-    "32": "assets//logo-32.png",
-    "48": "assets//logo-48.png",
-    "128": "assets//logo-128.png"
+    "16": "assets/logo-16.png",
+    "32": "assets/logo-32.png",
+    "48": "assets/logo-48.png",
+    "128": "assets/logo-128.png"
   },
 
   "permissions": ["<all_urls>", "activeTab", "downloads", "storage"]

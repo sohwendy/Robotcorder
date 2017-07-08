@@ -11,6 +11,6 @@ done < "$FILE"
 
 echo $VERSION
 
-zip -r archive/${VERSION}.zip . -x *.git* *.DS_Store *.idea* *.zip script/\* archive/\*
+zip -r archive/${VERSION}.zip . -x *.git* *.DS_Store *.idea* *.zip script/\* archive/\* test/\*
 
 exit;

@@ -1,45 +1,45 @@
 #scan::before {
-    background-image: url("assets//btn-scan.svg");
+    background-image: url("btn-scan.svg");
 }
 
 #scan[disabled]::before {
-    background-image: url("assets//btn-scan-disabled.svg");
+    background-image: url("btn-scan-disabled.svg");
 }
 
 #record::before {
-    background-image: url("assets//btn-record.svg");
+    background-image: url("btn-record.svg");
 }
 
 #record[disabled]::before {
-    background-image: url("assets//btn-record-disabled.svg");
+    background-image: url("btn-record-disabled.svg");
 }
 
 #stop::before {
-    background-image: url("assets//btn-stop.svg");
+    background-image: url("btn-stop.svg");
 }
 
 #stop[disabled]::before {
-    background-image: url("assets//btn-stop-disabled.svg");
+    background-image: url("btn-stop-disabled.svg");
 }
 
 #save::before {
-    background-image: url("assets//btn-save.svg");
+    background-image: url("btn-save.svg");
 }
 
 #save[disabled]::before {
-    background-image: url("assets//btn-save-disabled.svg");
+    background-image: url("btn-save-disabled.svg");
 }
 
 #settings::before {
-    background-image: url("assets//icon-settings.svg");
+    background-image: url("icon-settings.svg");
 }
 
 #info::before {
-    background-image: url("assets//icon-info.svg");
+    background-image: url("icon-info.svg");
 }
 
 #like::before {
-    background-image: url("assets//icon-like.svg");
+    background-image: url("icon-like.svg");
 }
 
 body {

@@ -11,12 +11,15 @@ var map = {
   default:  {keyword: "Click Element"}
 };
 
-var RobotTranslator = {
+var Translator = {
   generateEvents: function (list, length, demo, verify){
     let events = [];
+    let event;
     for (var i = 0; i < list.length && i < length ; i ++) {
-      let event = this._generateVerify(list[i], verify);
-      event && events.push(event);
+      if (i > 0) {
+        event = this._generateVerify(list[i], verify);
+        event && events.push(event);
+      }
       event = this._generatePath(list[i]);
       event && events.push(event);
       event = this._generateDemo(demo);
@@ -29,8 +32,10 @@ var RobotTranslator = {
   generateFile: function(list, length, demo, verify) {
     let events = [];
     for (var i = 0; i < list.length && i < length ; i ++) {
-      let event = this._generateVerify(list[i], verify);
-      event && events.push(event);
+      if (i > 0) {
+        event = this._generateVerify(list[i], verify);
+        event && events.push(event);
+      }
       event = this._generatePath(list[i]);
       event && events.push(event);
       event = this._generateDemo(demo);
@@ -56,18 +61,17 @@ var RobotTranslator = {
     let type = map[attr.type] || map["default"];
     let  path = type.keyword;
 
-    path += attr.path ? `  ${attr.path}  \${BROWSER}` : '' ;
-    path += attr.xpath ? `  ${attr.xpath}` : '' ;
-    path += attr.value && type.value ? `  ${attr.value}` : '' ;
+    path += attr.type === 'url' ? `  ${attr.path}  \${BROWSER}` : `  ${attr.path}`;
+    path += attr.value && type.value ? `  ${attr.value}` : '';
 
     return path;
   },
 
   _generateDemo: function(demo) {
-    return demo ? 'Sleep    ${SLEEP}' : '' ;
+    return demo ? 'Sleep    ${SLEEP}' : '';
   },
 
   _generateVerify: function(attr, verify) {
-    return attr.xpath && verify ? `Wait Until Page Contains Element   ${attr.xpath}` : '' ;
+    return attr.path && verify ? `Wait Until Page Contains Element   ${attr.path}` : '';
   }
 };

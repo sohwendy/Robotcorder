@@ -9,6 +9,8 @@ const logo = {
   action: "/assets/icon-action.png"
 };
 
+const filename = 'test_script.robot';
+
 const statusMessage = {
   stop: "Stopped",
   record: "Recording action...",

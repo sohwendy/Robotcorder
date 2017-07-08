@@ -8,7 +8,8 @@
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint .",
-    "test": "./node_modules/mocha/bin/mocha -r jsdom-global/register test/**/*.js"
+    "test": "./node_modules/mocha/bin/mocha -r jsdom-global/register test/**/*.js",
+    "export": "./script/export.command"
   },
   "repository": {
     "type": "git",

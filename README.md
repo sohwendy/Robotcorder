@@ -1,7 +1,10 @@
 # Robotcorder
 
+[![Build Status](https://travis-ci.org/sohwendy/Robotcorder.svg?branch=master)](https://travis-ci.org/sohwendy/Robotcorder)
 
-A browser extension (beta) that generates [RobotFramework](http://robotframework.org/) test script via
+> A browser extension (beta) that generates [RobotFramework](http://robotframework.org/) test script via
+
+## Features
 
 1. Recording user actions
 2. Scanning the html page
@@ -17,13 +20,15 @@ A browser extension (beta) that generates [RobotFramework](http://robotframework
 
 ## Package
 ``` $ script/export.command ```
+or
+``` $ npm run export ```
 
 
 ## To Do
 - [ ] use select from radio, checkbox
 - [ ] check why display is receiving null message
 - [ ] write unit test
-- [ ] setup ci
+- [X] setup ci
 - [X] add more configurations
 
 

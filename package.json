@@ -9,7 +9,8 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint .",
     "lint-fix": "./node_modules/.bin/eslint . --fix",
-    "test": "./node_modules/mocha/bin/mocha -r jsdom-global/register test/**/*.js",
+    "test-local": "./node_modules/mocha/bin/mocha -r jsdom-global/register test/**/*.js",
+    "test": "npm run lint && npm run test-local",
     "export": "./script/export.command"
   },
   "repository": {

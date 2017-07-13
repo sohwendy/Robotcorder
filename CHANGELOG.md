@@ -4,6 +4,7 @@
 - Major refactor include adding test and eslint
 - Use 'npm run export' as alternative to using './script/export.command'
 - Skip addition of verification of element before browser is open
+- Add Travis CI
 
 ## [0.1.9] 19 Jun 2017
 - Add Sleep 3s into Settings to slow down action execution

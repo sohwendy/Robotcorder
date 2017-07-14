@@ -115,3 +115,5 @@ host.runtime.onMessage.addListener(
     }
   }
 );
+
+if (typeof module.exports !== 'undefined') module.exports.selection = selection;

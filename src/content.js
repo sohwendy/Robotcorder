@@ -65,3 +65,10 @@ host.runtime.onMessage.addListener(
     }
   }
 );
+
+if (typeof module.exports !== 'undefined') {
+  module.exports.getTime = getTime;
+  module.exports.handleByChange = handleByChange;
+  module.exports.recordChange = recordChange;
+  module.exports.recordClick = recordClick;
+}

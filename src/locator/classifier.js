@@ -49,4 +49,4 @@ function classifier(element) {
   return hash;
 }
 
-if (typeof exports !== 'undefined') exports.classifier = classifier;
+if (typeof module.exports !== 'undefined') module.exports.classifier = classifier;

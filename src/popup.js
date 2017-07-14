@@ -141,3 +141,14 @@ host.storage.onChanged.addListener((changes, _) => {
     if (key === 'message') display({ message: changes.message.newValue });
   }
 });
+
+if (typeof module.exports !== 'undefined') {
+  module.exports.analytics = analytics;
+  module.exports.display = display;
+  module.exports.toggle = toggle;
+  module.exports.busy = busy;
+  module.exports.operation = operation;
+  module.exports.settings = settings;
+  module.exports.info = info;
+  module.exports.like = like;
+}

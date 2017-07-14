@@ -9,8 +9,8 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint .",
     "lint-fix": "./node_modules/.bin/eslint . --fix",
-    "test-local": "./node_modules/mocha/bin/mocha -r jsdom-global/register test/**/*.js",
-    "test": "npm run lint && npm run test-local",
+    "test-only": "./node_modules/mocha/bin/mocha 'test/**/*_spec.js'",
+    "test": "npm run lint && npm run test-only",
     "export": "./script/export.command"
   },
   "repository": {
@@ -28,8 +28,6 @@
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-import": "^2.7.0",
-    "jsdom": "11.1.0",
-    "jsdom-global": "3.0.2",
     "mocha": "^3.4.2",
     "sinon-chrome": "^2.2.1"
   }

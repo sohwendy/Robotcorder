@@ -4,6 +4,7 @@ const gaAccount = 'UA-88380525-1';
 
 const host = chrome;
 const storage = host.storage.local;
+const debug = true;
 
 /*eslint-disable */
 var _gaq = _gaq || [];
@@ -21,6 +22,7 @@ _gaq.push(['_trackPageview']);
 
 function analytics(data) {
   if (gaAccount) _gaq.push(data);
+  if (debug) document.getElementById('textarea-log').value = data;
 }
 
 function display(message) {
@@ -42,6 +44,7 @@ function toggle(e) {
     document.getElementById('settings-panel').classList.remove('disabled');
     $('#sortable').sortable('enable');
   } else if (e.target.id === 'settings') {
+    analytics(['_trackEvent', 'settings', '⚙️']);
     document.getElementById('settings-panel').classList.toggle('hidden');
   }
 
@@ -71,12 +74,12 @@ function operation(e) {
   analytics(['_trackEvent', e.target.id, '^-^']);
 }
 
-function settings() {
+function settings(e) {
   const locators = $('#sortable').sortable('toArray', { attribute: 'id' });
   const demo = document.getElementById('demo').checked;
   const verify = document.getElementById('verify').checked;
   host.runtime.sendMessage({ operation: 'settings', locators, demo, verify });
-  analytics(['_trackEvent', 'locators', '@_@']);
+  analytics(['_trackEvent', 'setting', e.target.id]);
 }
 
 function info() {
@@ -117,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  debug ? document.getElementById('textarea-log').classList.remove('hidden') : 0;
   document.getElementById('record').addEventListener('click', operation);
   document.getElementById('stop').addEventListener('click', operation);
   document.getElementById('save').addEventListener('click', operation);

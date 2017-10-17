@@ -5,8 +5,8 @@ const map = {
   button: { keyword: 'Click Button' },
   a: { keyword: 'Click Link' },
   select: { keyword: 'Select From List By Value', value: 'y' },
-  // radio:    { keyword: 'Select Radio Button', value: 'y' },
-  demo: { keyword: 'Sleep  ${SLEEP}' },
+  // radio:  { keyword: 'Select Radio Button', value: 'y' },
+  demo: { keyword: 'Sleep    ${SLEEP}' },
   verify: { keyword: 'Wait Until Page Contains Element' },
   default: { keyword: 'Click Element' }
 };
@@ -40,8 +40,8 @@ const translator = {
     const type = map[attr.type] || map.default;
     let path = type.keyword;
 
-    path += attr.type === 'url' ? `  ${attr.path}  \${BROWSER}` : `  ${attr.path}`;
-    path += attr.value && type.value ? `  ${attr.value}` : '';
+    path += attr.type === 'url' ? `    ${attr.path}    \${BROWSER}` : `    ${attr.path}`;
+    path += attr.value && type.value ? `    ${attr.value}` : '';
 
     return path;
   },
@@ -51,7 +51,7 @@ const translator = {
   },
 
   _generateVerify(attr, verify) {
-    return attr.path && verify ? `${map.verify.keyword}  ${attr.path}` : '';
+    return attr.path && verify ? `${map.verify.keyword}    ${attr.path}` : '';
   },
 
   _generateEvents(list, length, demo, verify) {

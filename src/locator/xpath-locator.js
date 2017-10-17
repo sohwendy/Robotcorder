@@ -47,4 +47,4 @@ const locator = {
   }
 };
 
-if (typeof exports !== 'undefined') exports.locator = locator;
+if (typeof module.exports !== 'undefined') module.exports.locator = locator;

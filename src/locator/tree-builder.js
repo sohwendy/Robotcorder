@@ -59,4 +59,4 @@ const builder = {
   }
 };
 
-if (typeof exports !== 'undefined') exports.builder = builder;
+if (typeof module.exports !== 'undefined') module.exports.builder = builder;

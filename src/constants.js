@@ -26,3 +26,12 @@ const instruction = 'Robotcorder\n' +
   '\n' +
   '\n' +
   'Automating test automation 🤗';
+
+if (typeof module.exports !== 'undefined') {
+  module.exports.url = url;
+  module.exports.tab = tab;
+  module.exports.logo = logo;
+  module.exports.filename = filename;
+  module.exports.statusMessage = statusMessage;
+  module.exports.instruction = instruction;
+};

@@ -5,6 +5,16 @@ const sinon = require('sinon');
 const { locator } = require('../../src/locator/xpath-locator');
 
 describe('xpath-locator', () => {
+  before(() => {
+    global.document = { evaluate: () => {} };
+    global.XPathResult = { ORDERED_NODE_ITERATOR_TYPE: 'a' };
+  });
+
+  after(() => {
+    delete global.document;
+    delete global.XPathResult;
+  });
+
   describe('build()', () => {
     it('works with id', () => {
       const tree = [{ span: [{ id: 'some_id' }] }];

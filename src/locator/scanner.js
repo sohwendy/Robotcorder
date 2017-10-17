@@ -42,4 +42,4 @@ const scanner = {
   }
 };
 
-if (typeof exports !== 'undefined') module.exports.scanner = scanner;
+if (typeof module.exports !== 'undefined') module.exports.scanner = scanner;

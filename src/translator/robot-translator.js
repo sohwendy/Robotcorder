@@ -71,4 +71,4 @@ const translator = {
   }
 };
 
-if (typeof exports !== 'undefined') exports.translator = translator;
+if (typeof module.exports !== 'undefined') module.exports.translator = translator;

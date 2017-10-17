@@ -53,7 +53,6 @@
 
 .copy-ok#copy::before {
     background-image: url("icon-ok.svg");
-
 }
 
 .copy-fail#copy::before {

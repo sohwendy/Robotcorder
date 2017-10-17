@@ -1,4 +1,4 @@
-/* global document chrome scanner*/
+/* global document chrome scanner */
 
 const host = chrome;
 let strategyList = [];

@@ -47,6 +47,19 @@
     background-image: url("btn-save-disabled.svg");
 }
 
+#copy::before {
+    background-image: url("icon-copy.svg");
+}
+
+.copy-ok#copy::before {
+    background-image: url("icon-ok.svg");
+
+}
+
+.copy-fail#copy::before {
+    background-image: url("icon-fail.svg");
+}
+
 #settings::before {
     background-image: url("icon-settings.svg");
 }
@@ -70,7 +83,7 @@ html {
 }
 
 .container {
-    min-width: 450px;
+    min-width: 500px;
     text-align: left;
 }
 
@@ -221,4 +234,14 @@ textarea {
 input[type="checkbox"] {
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.copy-ok, .copy-fail {
+    background-color: #474747;
+}
+
+button.copy-ok:hover {
+    cursor: pointer;
+    z-index: 1;
+    border: 1px solid #474747;
 }

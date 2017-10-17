@@ -4,7 +4,7 @@ const gaAccount = 'UA-88380525-1';
 
 const host = chrome;
 const storage = host.storage.local;
-const debug = true;
+const debug = false;
 
 /*eslint-disable */
 var _gaq = _gaq || [];
@@ -20,9 +20,13 @@ _gaq.push(['_trackPageview']);
 })();
 /*eslint-enable */
 
+function logger(data) {
+  if (debug) document.getElementById('textarea-log').value = data;
+}
+
 function analytics(data) {
   if (gaAccount) _gaq.push(data);
-  if (debug) document.getElementById('textarea-log').value = data;
+  logger(data);
 }
 
 function display(message) {

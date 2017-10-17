@@ -1,12 +1,13 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8"/>
   <title>Robotcorder</title>
-  <link rel="stylesheet" type="text/css" href="../vendors/jquery-ui.min.css"/>
-  <link rel="stylesheet" type="text/css" href="../assets/style.css">
+  <link async rel="stylesheet" type="text/css" href="../vendors/jquery-ui.min.css"/>
+  <link async rel="stylesheet" type="text/css" href="../assets/style.css">
   <script src="../vendors/jquery-3.1.1.min.js"></script>
   <script src="../vendors/jquery-ui.min.js"></script>
+  <script src="../vendors/clipboard-1.71.min.js"></script>
 </head>
 
 <body class="container" tabindex="-1">
@@ -30,6 +31,7 @@
     </span>
 
     <span class="btn-thin">
+      <button class="btn" id="copy" tabindex="-1" title="copy to clipboard" data-clipboard-target="#textarea-script"></button>
       <button class="btn" id="settings" tabindex="-1" title="show/hide settings"></button>
       <button class="btn" id="info" tabindex="-1" title="open instructions in another tab"></button>
       <button class="btn" id="like" tabindex="-1" title="like me!"></button>
@@ -55,7 +57,7 @@
   </div>
 
   <div class="pad">
-    <textarea id="textarea-script" tabindex="-1" readonly></textarea>
+    <textarea id="textarea-script" tabindex="-1" readonly title="steps"></textarea>
   </div>
 
   <div class="pad">
@@ -63,5 +65,6 @@
   </div>
 
   <script src="popup.js"></script>
+  <script src="copy.js"></script>
 </body>
 </html>

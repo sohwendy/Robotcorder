@@ -1,5 +1,5 @@
 /* global chrome URL Blob */
-/* global instruction filename statusMessage url tab logo translator*/
+/* global instruction filename statusMessage url tab logo translator */
 
 const host = chrome;
 

@@ -1,6 +1,9 @@
 # Change Log
 
-## [0.2.0]
+## [0.3.0] 18 Oct 2017
+- Add Pause feature
+
+## [0.2.0] 18 Oct 2017
 - Add Copy feature to allow copying of script into clipboard
 - Closes the browser after the test
 - Change to 4 spacing. Originally using 2 spaces

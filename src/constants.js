@@ -6,7 +6,8 @@ const logo = {
   stop: '/assets/icon-stop.png',
   record: '/assets/icon-record.png',
   scan: '/assets/icon-stop.png',
-  action: '/assets/icon-action.png'
+  action: '/assets/icon-action.png',
+  pause: '/assets/icon-pause.png'
 };
 
 const filename = 'test_script.robot';

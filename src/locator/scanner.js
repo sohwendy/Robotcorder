@@ -1,7 +1,7 @@
 /* global builder locator classifier */
 
 const scanner = {
-  limit: 50000,
+  limit: 1000,
 
   parseNodes(array, root, attributesArray) {
     this.limit = this.limit - 1;

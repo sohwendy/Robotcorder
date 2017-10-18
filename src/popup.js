@@ -36,16 +36,45 @@ function display(message) {
   }
 }
 
+function show(array, visible) {
+  array.forEach((id) => {
+    const element = document.getElementById(id);
+    visible ? element.classList.remove('hidden') : element.classList.add('hidden');
+  });
+}
+
+function enable(array, isEnabled) {
+  array.forEach((id) => {
+    const element = document.getElementById(id);
+    isEnabled ? element.classList.remove('disabled') : element.classList.add('disabled');
+  });
+}
+
 function toggle(e) {
+  logger(e.target.id);
   if (e.target.id === 'record') {
-    document.getElementById('record').classList.add('hidden');
-    document.getElementById('stop').classList.remove('hidden');
-    document.getElementById('settings-panel').classList.add('disabled');
+    show(['stop', 'pause'], true);
+    show(['record', 'resume', 'scan'], false);
+    enable(['settings-panel'], false);
+
+    $('#sortable').sortable('disable');
+  } else if (e.target.id === 'pause') {
+    show(['resume', 'stop'], true);
+    show(['record', 'scan', 'pause'], false);
+    enable(['settings-panel'], false);
+
+    $('#sortable').sortable('disable');
+  } else if (e.target.id === 'resume') {
+    show(['pause', 'stop'], true);
+    show(['record', 'scan', 'resume'], false);
+    enable(['settings-panel'], false);
+
     $('#sortable').sortable('disable');
   } else if ((e.target.id === 'stop') || (e.target.id === 'scan')) {
-    document.getElementById('stop').classList.add('hidden');
-    document.getElementById('record').classList.remove('hidden');
-    document.getElementById('settings-panel').classList.remove('disabled');
+    show(['record', 'scan'], true);
+    show(['resume', 'stop', 'pause'], false);
+    enable(['settings-panel'], true);
+
     $('#sortable').sortable('enable');
   } else if (e.target.id === 'settings') {
     analytics(['_trackEvent', 'settings', '⚙️']);
@@ -63,10 +92,9 @@ function toggle(e) {
 
 function busy(e) {
   if ((e.isBusy === true) || (e.isBusy === false)) {
-    document.getElementById('scan').disabled = e.isBusy;
-    document.getElementById('record').disabled = e.isBusy;
-    document.getElementById('stop').disabled = e.isBusy;
-    document.getElementById('save').disabled = e.isBusy;
+    ['scan', 'record', 'stop', 'save', 'save', 'resume'].forEach((id) => {
+      document.getElementById(id).disabled = e.isBusy;
+    });
   }
 }
 
@@ -114,26 +142,31 @@ document.addEventListener('DOMContentLoaded', () => {
       demo: state.demo,
       verify: state.verify
     });
-    const sortable = document.getElementById('sortable');
-    state.locators.forEach((locator) => {
-      const li = document.createElement('li');
-      li.appendChild(document.createTextNode(locator));
-      li.setAttribute('id', locator);
-      li.setAttribute('class', 'ui-state-default');
-      sortable.appendChild(li);
-    });
+    setTimeout(() => {
+      const sortable = document.getElementById('sortable');
+      state.locators.forEach((locator) => {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(locator));
+        li.setAttribute('id', locator);
+        li.setAttribute('class', 'ui-state-default');
+        sortable.appendChild(li);
+      });
+    }, 200);
   });
 
   debug ? document.getElementById('textarea-log').classList.remove('hidden') : 0;
-  document.getElementById('record').addEventListener('click', operation);
-  document.getElementById('stop').addEventListener('click', operation);
-  document.getElementById('save').addEventListener('click', operation);
-  document.getElementById('scan').addEventListener('click', operation);
+
+  ['record', 'resume', 'stop', 'pause', 'save', 'scan'].forEach((id) => {
+    document.getElementById(id).addEventListener('click', operation);
+  });
+
+  ['demo', 'verify'].forEach((id) => {
+    document.getElementById(id).addEventListener('change', settings);
+  });
+
   document.getElementById('like').addEventListener('click', like);
   document.getElementById('info').addEventListener('click', info);
   document.getElementById('settings').addEventListener('click', toggle);
-  document.getElementById('demo').addEventListener('change', settings);
-  document.getElementById('verify').addEventListener('change', settings);
 
   $('#sortable').sortable({ update: settings });
   $('#sortable').disableSelection();

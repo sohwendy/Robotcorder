@@ -125,7 +125,7 @@ host.runtime.onMessage.addListener(
 
       if (request.scripts) {
         icon.setIcon({ path: logo.stop });
-        list = request.scripts;
+        list = list.concat(request.scripts);
         script = translator.generateOutput(list, maxLength, demo, verify);
 
         storage.set({ message: script, operation: 'stop', isBusy: false });

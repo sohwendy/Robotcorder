@@ -59,7 +59,7 @@ host.runtime.onMessage.addListener(
       document.removeEventListener('change', recordChange, true);
       document.removeEventListener('click', recordClick, true);
 
-      scanner.limit = 10000;
+      scanner.limit = 1000;
       const array = scanner.parseNodes([], document.body, strategyList);
       host.runtime.sendMessage({ operation: 'action', scripts: array });
     }

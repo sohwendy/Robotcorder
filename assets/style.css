@@ -23,10 +23,12 @@
     background-image: url("btn-scan-disabled.svg");
 }
 
+#resume::before,
 #record::before {
     background-image: url("btn-record.svg");
 }
 
+#resume[disabled]::before,
 #record[disabled]::before {
     background-image: url("btn-record-disabled.svg");
 }
@@ -37,6 +39,14 @@
 
 #stop[disabled]::before {
     background-image: url("btn-stop-disabled.svg");
+}
+
+#pause::before {
+    background-image: url("btn-pause.svg");
+}
+
+#pause[disabled]::before {
+    background-image: url("btn-pause-disabled.svg");
 }
 
 #save::before {

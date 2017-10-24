@@ -48,7 +48,7 @@ function selection(item) {
 
 host.runtime.onMessage.addListener(
   (request, sender, sendResponse) => {
-    const operation = request.operation;
+    let operation = request.operation;
 
     if (operation === 'record') {
       icon.setIcon({ path: logo[operation] });
@@ -56,6 +56,24 @@ host.runtime.onMessage.addListener(
       content.query(tab, (tabs) => {
         recordTab = tabs[0];
         list = [{ type: 'url', path: recordTab.url, time: 0, trigger: 'record', title: recordTab.title }];
+        content.sendMessage(tabs[0].id, { operation, locators: request.locators });
+      });
+
+      storage.set({ message: statusMessage[operation], operation, canSave: false });
+    } else if (operation === 'pause') {
+      icon.setIcon({ path: logo.pause });
+
+      content.query(tab, (tabs) => {
+        content.sendMessage(tabs[0].id, { operation: 'stop' });
+      });
+      storage.set({ operation: 'pause', canSave: false, isBusy: false });
+    } else if (operation === 'resume') {
+      operation = 'record';
+
+      icon.setIcon({ path: logo[operation] });
+
+      content.query(tab, (tabs) => {
+        recordTab = tabs[0];
         content.sendMessage(tabs[0].id, { operation, locators: request.locators });
       });
 

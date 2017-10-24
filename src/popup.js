@@ -1,10 +1,10 @@
-/* global document $ chrome */
-
+/* global document $ chrome Clipboard */
+const debug = false;
 const gaAccount = 'UA-88380525-1';
+const version = '0.3.0';
 
 const host = chrome;
 const storage = host.storage.local;
-const debug = false;
 
 /*eslint-disable */
 var _gaq = _gaq || [];
@@ -25,9 +25,36 @@ function logger(data) {
 }
 
 function analytics(data) {
-  if (gaAccount) _gaq.push(data);
-  logger(data);
+  const versionData = data;
+  if (gaAccount) {
+    versionData[2] = `${version} ${data[2]}`;
+    _gaq.push(data);
+    logger(gaAccount && versionData);
+  }
 }
+
+const clipboard = new Clipboard('#copy');
+
+const copyStatus = (className) => {
+  $('#copy').addClass(className);
+  setTimeout(() => { $('#copy').removeClass(className); }, 3000);
+};
+
+clipboard.on('success', (e) => {
+  copyStatus('copy-ok');
+  analytics(['_trackEvent', 'copy', 'ok']);
+
+  e.clearSelection();
+});
+
+clipboard.on('error', (e) => {
+  copyStatus('copy-fail');
+  analytics(['_trackEvent', 'copy', 'nok']);
+  /* eslint-disable no-console */
+  console.error('Action:', e.action);
+  console.error('Trigger:', e.trigger);
+  /* eslint-enable no-console */
+});
 
 function display(message) {
   if (message && message.message) {

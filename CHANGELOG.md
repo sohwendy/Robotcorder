@@ -2,6 +2,8 @@
 
 ## [0.3.0] 18 Oct 2017
 - Add Pause feature
+- Fix Scan bug
+- Minor update to analytic tracking on version
 
 ## [0.2.0] 18 Oct 2017
 - Add Copy feature to allow copying of script into clipboard

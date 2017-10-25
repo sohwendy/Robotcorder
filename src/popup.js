@@ -28,7 +28,7 @@ function analytics(data) {
   const versionData = data;
   if (gaAccount) {
     versionData[2] = `${version} ${data[2]}`;
-    _gaq.push(data);
+    _gaq.push(versionData);
     logger(gaAccount && versionData);
   }
 }

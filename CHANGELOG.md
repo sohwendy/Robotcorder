@@ -1,6 +1,6 @@
 # Change Log
 
-## [0.3.0] 18 Oct 2017
+## [0.3.0] 24 Oct 2017
 - Add Pause feature
 - Fix Scan bug
 - Minor update to analytic tracking on version

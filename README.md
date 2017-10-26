@@ -2,16 +2,16 @@
 
 [![Build Status](https://travis-ci.org/sohwendy/Robotcorder.svg?branch=master)](https://travis-ci.org/sohwendy/Robotcorder)
 
-> A browser extension (beta) that generates [RobotFramework](http://robotframework.org/) test script via
+> A browser extension (beta) that generates [RobotFramework](http://robotframework.org/) test scripts
 
 ## Features
 
 1. Recording user actions
 2. Scanning the html page
 
-[Read more..](https://blog.gds-gov.tech/automating-test-automation-a304f7b955a2)
+[Read more..](http://bit.ly/robotcorder-blog)
 
-[Watch it in action!](https://www.youtube.com/watch?v=epCb4NTYtfY)
+[Watch it in action!](http://bit.ly/robotcorder-video)
 
 
 ## Download
@@ -40,4 +40,4 @@ or
 5. Create new Pull Request
 
 ## Change Log
-Refer to CHANGELOG.md
+Refer to [CHANGELOG.md](http://bit.ly/robotcorder-changelog)

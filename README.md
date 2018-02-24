@@ -1,5 +1,7 @@
 # Robotcorder
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/sohwendy/Robotcorder.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/sohwendy/Robotcorder.svg?branch=master)](https://travis-ci.org/sohwendy/Robotcorder)
 
 > A browser extension (beta) that generates [RobotFramework](http://robotframework.org/) test scripts

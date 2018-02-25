@@ -10,14 +10,14 @@
     "lint": "./node_modules/.bin/eslint .",
     "lint-fix": "./node_modules/.bin/eslint . --fix",
     "test-local": "./node_modules/mocha/bin/mocha -r jsdom-global/register test/**/*.js",
-    "test": "npm run lint && npm run test-local",
+    "test": "yarn run lint && yarn run test-local",
     "export": "./script/export.command"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sohwendy/Robotcorder.git"
   },
-  "author": "",
+  "author": "Wendy",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sohwendy/Robotcorder/issues"
@@ -25,12 +25,12 @@
   "homepage": "https://github.com/sohwendy/Robotcorder#readme",
   "devDependencies": {
     "chai": "^4.0.2",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint": "^4.18.1",
+    "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.7.0",
-    "jsdom": "11.1.0",
+    "jsdom": "11.6.2",
     "jsdom-global": "3.0.2",
-    "mocha": "^3.4.2",
+    "mocha": "^5.0.1",
     "sinon-chrome": "^2.2.1"
   }
 }

@@ -18,7 +18,7 @@ _gaq.push(['_trackPageview']);
   var s = document.getElementsByTagName('script')[0];
   s.parentNode.insertBefore(ga, s);
 })();
-/*eslint-enable */
+/* eslint-enable */
 
 function logger(data) {
   if (debug) document.getElementById('textarea-log').value = data;
@@ -137,7 +137,9 @@ function settings(e) {
   const locators = $('#sortable').sortable('toArray', { attribute: 'id' });
   const demo = document.getElementById('demo').checked;
   const verify = document.getElementById('verify').checked;
-  host.runtime.sendMessage({ operation: 'settings', locators, demo, verify });
+  host.runtime.sendMessage({
+    operation: 'settings', locators, demo, verify
+  });
   analytics(['_trackEvent', 'setting', e.target.id]);
 }
 

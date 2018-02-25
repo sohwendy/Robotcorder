@@ -4,7 +4,8 @@ const locator = {
   build(tree, element, type) {
     const item = tree[0];
     const tag = Object.keys(item)[0];
-    const p = item[tag].reduce((subpath, attr) => (
+    const p = item[tag].reduce(
+      (subpath, attr) => (
         subpath === '' ? this._getSubpath(subpath, attr, tag) : subpath
       ),
       ''

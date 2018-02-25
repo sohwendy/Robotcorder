@@ -43,25 +43,23 @@ function recordClick(event) {
   }
 }
 
-host.runtime.onMessage.addListener(
-  (request, sender, sendResponse) => {
-    if (request.operation === 'record') {
-      strategyList = request.locators || [];
-      strategyList.push('index');
-      document.addEventListener('change', recordChange, true);
-      document.addEventListener('click', recordClick, true);
-    } else if (request.operation === 'stop') {
-      document.removeEventListener('change', recordChange, true);
-      document.removeEventListener('click', recordClick, true);
-    } else if (request.operation === 'scan') {
-      strategyList = request.locators || [];
-      strategyList.push('index');
-      document.removeEventListener('change', recordChange, true);
-      document.removeEventListener('click', recordClick, true);
+host.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.operation === 'record') {
+    strategyList = request.locators || [];
+    strategyList.push('index');
+    document.addEventListener('change', recordChange, true);
+    document.addEventListener('click', recordClick, true);
+  } else if (request.operation === 'stop') {
+    document.removeEventListener('change', recordChange, true);
+    document.removeEventListener('click', recordClick, true);
+  } else if (request.operation === 'scan') {
+    strategyList = request.locators || [];
+    strategyList.push('index');
+    document.removeEventListener('change', recordChange, true);
+    document.removeEventListener('click', recordClick, true);
 
-      scanner.limit = 1000;
-      const array = scanner.parseNodes([], document.body, strategyList);
-      host.runtime.sendMessage({ operation: 'action', scripts: array });
-    }
+    scanner.limit = 1000;
+    const array = scanner.parseNodes([], document.body, strategyList);
+    host.runtime.sendMessage({ operation: 'action', scripts: array });
   }
-);
+});

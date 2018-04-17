@@ -3,6 +3,7 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/sohwendy/Robotcorder.svg)](https://greenkeeper.io/)
 
 [![Build Status](https://travis-ci.org/sohwendy/Robotcorder.svg?branch=master)](https://travis-ci.org/sohwendy/Robotcorder)
+[![Known Vulnerabilities](https://snyk.io/test/github/sohwendy/robotcorder/badge.svg?targetFile=package.json)](https://snyk.io/test/github/sohwendy/robotcorder?targetFile=package.json)
 
 > A browser extension (beta) that generates [RobotFramework](http://robotframework.org/) test scripts
 

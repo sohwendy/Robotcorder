@@ -44,3 +44,8 @@ or
 
 ## Change Log
 Refer to [CHANGELOG.md](http://bit.ly/robotcorder-changelog)
+
+
+## Github Pages
+Found in /docs.
+Refer to [Robotcorder-Page](https://sohwendy.github.io/Robotcorder-Page/) for instruction how to update github page.

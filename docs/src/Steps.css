@@ -1,0 +1,8 @@
+.ui.card, .ui.cards > .card {
+  border: none;
+  -webkit-box-shadow: none;
+}
+
+.ui.card>.extra, .ui.cards>.card>.extra {
+  border-top: 0px !important;
+}

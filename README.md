@@ -1,6 +1,7 @@
 # Robotcorder
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/sohwendy/Robotcorder.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/sohwendy/Robotcorder.svg?branch=master)](https://travis-ci.org/sohwendy/Robotcorder)
 [![Known Vulnerabilities](https://snyk.io/test/github/sohwendy/robotcorder/badge.svg?targetFile=package.json)](https://snyk.io/test/github/sohwendy/robotcorder?targetFile=package.json)
 
@@ -25,6 +26,7 @@
 or
 ``` $ npm run export ```
 
+
 ## To Do
 - [ ] use select from radio, checkbox
 - [ ] check why display is receiving null message
@@ -42,8 +44,3 @@ or
 
 ## Change Log
 Refer to [CHANGELOG.md](http://bit.ly/robotcorder-changelog)
-
-
-## Github Page
-Built using create-react-app
-Refer to docs/README.md for more info

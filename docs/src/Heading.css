@@ -1,0 +1,3 @@
+.ui.header>.image:not(.icon), .ui.header>img {
+  vertical-align: bottom;
+}

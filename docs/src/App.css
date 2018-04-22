@@ -1,0 +1,20 @@
+div.ui.segment {
+  margin: 0;
+  border-radius: 0;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.ui.inverted.segment,
+.ui.primary.inverted.segment {
+  background: #37474f;
+}
+
+/* menu */
+.ui.secondary.pointing.menu,
+.ui.menu .item:before,
+.ui.menu:not(.secondary):not(.text):not(.tabular):not(.borderless)>.container>.item:not(.right):not(.borderless):first-child {
+  border: none;
+  background: none;
+}

@@ -81,6 +81,14 @@
     background-image: url("icon-like.svg");
 }
 
+#update::before {
+  background-image: url("btn-update.svg");
+}
+
+#reset::before {
+  background-image: url("btn-reset.svg");
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
@@ -254,3 +262,4 @@ button.copy-ok:hover {
     z-index: 1;
     border: 1px solid #474747;
 }
+

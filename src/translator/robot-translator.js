@@ -23,17 +23,17 @@ const translator = {
 
     events = events.reduce((a, b) => `${a}    ${b}\n`, '');
 
-    return '*** Settings ***' +
-      `\nDocumentation     A test suite with a single test for ${list[0].title}` +
-      "\n...               Created by hats' Robotcorder" +
-      '\nLibrary           Selenium2Library    timeout=10' +
-      '\n\n*** Variables ***' +
-      '\n${BROWSER}    chrome' +
-      '\n${SLEEP}    3' +
-      '\n\n*** Test Cases ***' +
-      `\n${list[0].title} test` +
-      `\n${events}` +
-      '\n    Close Browser';
+    return '*** Settings ***'
+      + `\nDocumentation     A test suite with a single test for ${list[0].title}`
+      + "\n...               Created by hats' Robotcorder"
+      + '\nLibrary           Selenium2Library    timeout=10'
+      + '\n\n*** Variables ***'
+      + '\n${BROWSER}    chrome'
+      + '\n${SLEEP}    3'
+      + '\n\n*** Test Cases ***'
+      + `\n${list[0].title} test`
+      + `\n${events}`
+      + '\n    Close Browser';
   },
 
   _generatePath(attr) {

@@ -27,17 +27,17 @@ describe('robot-translator', () => {
       const events = ['a', 'b', 'c'];
       sandbox.stub(translator, '_generateEvents').returns(events);
 
-      const expected = '*** Settings ***' +
-        '\nDocumentation     A test suite with a single test for some_title' +
-        "\n...               Created by hats' Robotcorder" +
-        '\nLibrary           Selenium2Library    timeout=10' +
-        '\n\n*** Variables ***' +
-        '\n${BROWSER}    chrome' +
-        '\n${SLEEP}    3' +
-        '\n\n*** Test Cases ***' +
-        '\nsome_title test' +
-        `\n    ${events.join('\n    ')}\n` +
-        '\n    Close Browser';
+      const expected = '*** Settings ***'
+        + '\nDocumentation     A test suite with a single test for some_title'
+        + "\n...               Created by hats' Robotcorder"
+        + '\nLibrary           Selenium2Library    timeout=10'
+        + '\n\n*** Variables ***'
+        + '\n${BROWSER}    chrome'
+        + '\n${SLEEP}    3'
+        + '\n\n*** Test Cases ***'
+        + '\nsome_title test'
+        + `\n    ${events.join('\n    ')}\n`
+        + '\n    Close Browser';
 
       const result = translator.generateFile([{ title: 'some_title' }], 1, true, true);
 

@@ -1,0 +1,49 @@
+
+.panel-options {
+  padding: 0.5rem;
+  width: 350px;
+  height: 20px;
+  padding: 10px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: repeat(3, 1fr);
+  grid-row-gap: 2rem;
+}
+
+.heading {
+  grid-column: 1 / 4;
+  grid-row: 1;
+  h1 {
+    font-size: 1.2rem;
+  }
+}
+
+input#custom-locators {
+  grid-column: 1 / 4;
+  grid-row: 2;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+}
+
+input#custom-locators:focus {
+  outline: 1px solid #D2D2D2;
+  margin: none;
+}
+
+button#reset, button#update {
+  min-width: 100%;
+  margin: 0;
+}
+
+button#reset {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+button#update {
+  grid-column: 3;
+  grid-row: 3;
+}

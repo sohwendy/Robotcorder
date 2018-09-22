@@ -18,12 +18,12 @@ const statusMessage = {
   scan: 'Scanning html document...'
 };
 
-const instruction = 'Robotcorder\n' +
-  '\n' +
-  'Generate your RobotFramework Test Script via\n' +
-  '* Record user actions\n' +
-  '* Scan the page for inputs\n' +
-  '* Config the locators priorities that best suit your app\n' +
-  '\n' +
-  '\n' +
-  'Automating test automation 🤗';
+const instruction = 'Robotcorder\n'
+  + '\n'
+  + 'Generate your RobotFramework Test Script via\n'
+  + '* Record user actions\n'
+  + '* Scan the page for inputs\n'
+  + '* Config the locators priorities that best suit your app\n'
+  + '\n'
+  + '\n'
+  + 'Automating test automation 🤗';

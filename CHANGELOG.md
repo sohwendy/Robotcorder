@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.4.0] 22 Sept 2018
+- Add hidden option to customise the locators
+- Bump up devDependencies versions
+
 ## [0.3.0] 24 Oct 2017
 - Add Pause feature
 - Fix Scan bug

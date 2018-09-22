@@ -1,4 +1,4 @@
-/* global document $ chrome Clipboard */
+/* global document $ chrome ClipboardJS */
 const debug = false;
 const gaAccount = 'UA-88380525-1';
 const version = '0.3.0';
@@ -33,7 +33,7 @@ function analytics(data) {
   }
 }
 
-const clipboard = new Clipboard('#copy');
+const clipboard = new ClipboardJS('#copy');
 
 const copyStatus = (className) => {
   $('#copy').addClass(className);

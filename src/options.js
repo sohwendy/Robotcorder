@@ -9,7 +9,7 @@ function update() {
   storage.set({ locators: array });
 }
 
-document && document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   storage.get({
     locators: []
   }, (state) => {
@@ -17,6 +17,5 @@ document && document.addEventListener('DOMContentLoaded', () => {
   });
   document.getElementById('update').addEventListener('click', update);
 });
-
 
 if (typeof exports !== 'undefined') exports.update = update;
